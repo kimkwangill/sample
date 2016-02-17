@@ -1,0 +1,55 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+---
+spring:
+  profiles: local
+  datasource:
+    platform: mysql
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://192.168.56.101/magento
+    username: magento
+    password: magento
+server:
+    port: 8080
+logging:
+  config: classpath:logback-spring.xml
+    
+--- 
+spring:
+  profiles: dev
+  datasource:
+    platform: mysql
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.101/magento
+    username: magento
+    password: magento
+server:
+    port: 8080
+
+---
+spring:
+  profiles: qa
+  datasource:
+    platform: mysql
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.101/magento
+    username: magento
+    password: magento
+server:
+    port: 8080
+
+---
+spring:
+  profiles: prd
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.101/magento
+    username: magento
+    password: magento
+server:
+    port: 0
+
